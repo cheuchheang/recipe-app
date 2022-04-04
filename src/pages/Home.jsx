@@ -6,10 +6,10 @@ const Home = () => (
   <>
     <h1>Hello</h1>
     <div>
-      <Popular />
+      <Veggie />
     </div>
     <div>
-      <Veggie />
+      <Popular />
     </div>
   </>
 );
