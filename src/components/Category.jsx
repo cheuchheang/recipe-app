@@ -4,28 +4,28 @@ import styled from "styled-components";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Category = () => {
+const Category = React.memo(() => {
   return (
     <StyledWrapper>
-      <div>
+      <NavLink to={"/cuisine/italian"}>
         <FaPizzaSlice />
         <h4>Italian </h4>
-      </div>
-      <div>
+      </NavLink>
+      <NavLink to={"/cuisine/american"}>
         <FaHamburger />
         <h4>American</h4>
-      </div>
-      <div>
+      </NavLink>
+      <NavLink to={"/cuisine/thai"}>
         <GiNoodles />
         <h4>Thai</h4>
-      </div>
-      <div>
+      </NavLink>
+      <NavLink to={"/cuisine/japanese"}>
         <GiChopsticks />
         <h4>Japanese</h4>
-      </div>
+      </NavLink>
     </StyledWrapper>
   );
-};
+});
 
 const StyledWrapper = styled.div`
   display: flex;

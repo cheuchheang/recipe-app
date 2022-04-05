@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 
-const Popular = () => {
+const Popular = React.memo(() => {
   const [popular, setPopular] = useState([]);
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const Popular = () => {
       </Splide>
     </Wrapper>
   );
-};
+});
 
 export const Wrapper = styled.div`
   margin: 4rem 0rem;

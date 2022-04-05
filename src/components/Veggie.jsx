@@ -4,7 +4,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Wrapper, Card, Gradient } from "./Popular";
 
-const Veggie = () => {
+const Veggie = React.memo(() => {
   const [veggie, setVeggie] = useState([]);
 
   useEffect(() => {
@@ -52,5 +52,5 @@ const Veggie = () => {
       </Wrapper>
     </div>
   );
-};
+});
 export default Veggie;
