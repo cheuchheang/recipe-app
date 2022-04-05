@@ -2,10 +2,11 @@ import { FaPizzaSlice, FaHamburger } from "react-icons/fa";
 import { GiNoodles, GiChopsticks } from "react-icons/gi";
 import styled from "styled-components";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Category = () => {
   return (
-    <div>
+    <StyledWrapper>
       <div>
         <FaPizzaSlice />
         <h4>Italian </h4>
@@ -22,8 +23,15 @@ const Category = () => {
         <GiChopsticks />
         <h4>Japanese</h4>
       </div>
-    </div>
+    </StyledWrapper>
   );
 };
+
+const StyledWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  margin: 2rem 0rem;
+`;
 
 export default Category;
