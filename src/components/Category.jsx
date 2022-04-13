@@ -7,22 +7,22 @@ import { NavLink } from "react-router-dom";
 const Category = React.memo(() => {
   return (
     <StyledWrapper>
-      <NavLink to={"/cuisine/italian"}>
+      <SLink to={"/cuisine/italian"}>
         <FaPizzaSlice />
         <h4>Italian </h4>
-      </NavLink>
-      <NavLink to={"/cuisine/american"}>
+      </SLink>
+      <SLink to={"/cuisine/american"}>
         <FaHamburger />
         <h4>American</h4>
-      </NavLink>
-      <NavLink to={"/cuisine/thai"}>
+      </SLink>
+      <SLink to={"/cuisine/thai"}>
         <GiNoodles />
         <h4>Thai</h4>
-      </NavLink>
-      <NavLink to={"/cuisine/japanese"}>
+      </SLink>
+      <SLink to={"/cuisine/japanese"}>
         <GiChopsticks />
         <h4>Japanese</h4>
-      </NavLink>
+      </SLink>
     </StyledWrapper>
   );
 });
@@ -30,8 +30,15 @@ const Category = React.memo(() => {
 const StyledWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-
   margin: 2rem 0rem;
+`;
+
+const SLink = styled(NavLink)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
 `;
 
 export default Category;
