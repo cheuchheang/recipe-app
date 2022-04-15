@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 const Search = () => {
   const [input, setInput] = useState("");
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const SubmitHandler = (e) => {
     e.preventDefault();
-    navigate("/searched/"+input)
+    navigate("/searched/" + input);
   };
 
   return (
@@ -17,6 +17,7 @@ const Search = () => {
         <FaSearch />
         <input
           input="text"
+          placeholder="Search recipe..."
           onChange={(e) => setInput(e.target.value)}
           value={input}
         />
