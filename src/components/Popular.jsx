@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
+import { Link } from "react-router-dom";
 
 const Popular = React.memo(() => {
   const [popular, setPopular] = useState([]);
@@ -39,10 +40,12 @@ const Popular = React.memo(() => {
       >
         {popular.map((recipe) => (
           <SplideSlide>
-            <Card key={popular.id}>
-              <p>{recipe.title}</p>
-              <img src={recipe.image} alt={recipe.title} />
-              <Gradient />
+            <Card key={recipe.id}>
+              <Link to={'/recipe/'+ recipe.id}>
+                <p>{recipe.title}</p>
+                <img src={recipe.image} alt={recipe.title} />
+                <Gradient />
+              </Link>
             </Card>
           </SplideSlide>
         ))}

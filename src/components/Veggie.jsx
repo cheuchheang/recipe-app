@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Wrapper, Card, Gradient } from "./Popular";
+import { Link } from "react-router-dom";
 
 const Veggie = React.memo(() => {
   const [veggie, setVeggie] = useState([]);
@@ -41,10 +42,12 @@ const Veggie = React.memo(() => {
         >
           {veggie.map((recipe) => (
             <SplideSlide>
-              <Card key={veggie.id}>
-                <p>{recipe.title}</p>
-                <img src={recipe.image} alt={recipe.title} />
-                <Gradient />
+              <Card key={recipe.id}>
+                <Link to={"/recipe/" + recipe.id}>
+                  <p>{recipe.title}</p>
+                  <img src={recipe.image} alt={recipe.title} />
+                  <Gradient />
+                </Link>
               </Card>
             </SplideSlide>
           ))}

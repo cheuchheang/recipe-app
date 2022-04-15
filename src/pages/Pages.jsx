@@ -1,18 +1,25 @@
 import React, { Suspense, lazy } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
+import Recipe from "./Recipe";
 import Searched from "./Searched";
+import { AnimatePresence } from "framer-motion";
 
 const Home = lazy(() => import("./Home"));
 const Cuisine = lazy(() => import("./Cuisine"));
 
 const Pages = () => {
+  const location = useLocation();
+
   return (
     <Suspense fallback={<div>Loading... </div>}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cuisine/:type" element={<Cuisine />} />
-        <Route path="/searched/:search" element={<Searched />} />
-      </Routes>
+      <AnimatePresence exitBeforeEnter>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/cuisine/:type" element={<Cuisine />} />
+          <Route path="/searched/:search" element={<Searched />} />
+          <Route path="/recipe/:name" element={<Recipe />} />
+        </Routes>
+      </AnimatePresence>
     </Suspense>
   );
 };
