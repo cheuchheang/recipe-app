@@ -6,11 +6,6 @@ import { Link } from "react-router-dom";
 
 const Popular = React.memo(() => {
   const [popular, setPopular] = useState([]);
-
-  useEffect(() => {
-    getPopular();
-  }, []);
-
   const getPopular = async () => {
     const check = localStorage.getItem("popular");
 
@@ -26,6 +21,11 @@ const Popular = React.memo(() => {
       console.log(data.recipes);
     }
   };
+  
+  useEffect(() => {
+    getPopular();
+  }, []);
+  
   return (
     <Wrapper>
       <h3>Popular Picks</h3>

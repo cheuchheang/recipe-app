@@ -7,11 +7,6 @@ import { Link } from "react-router-dom";
 
 const Veggie = React.memo(() => {
   const [veggie, setVeggie] = useState([]);
-
-  useEffect(() => {
-    getVeggie();
-  }, []);
-
   const getVeggie = async () => {
     const check = localStorage.getItem("veggie");
 
@@ -27,6 +22,10 @@ const Veggie = React.memo(() => {
       console.log(data.recipes);
     }
   };
+  useEffect(() => {
+    getVeggie();
+  }, []);
+  
   return (
     <div>
       <Wrapper>
