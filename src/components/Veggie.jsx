@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Wrapper, Card, Gradient } from "./Popular";
@@ -7,14 +6,16 @@ import { Link } from "react-router-dom";
 
 const Veggie = React.memo(() => {
   const [veggie, setVeggie] = useState([]);
+  
   const getVeggie = async () => {
+    
     const check = localStorage.getItem("veggie");
 
     if (check) {
       setVeggie(JSON.parse(check));
     } else {
       const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}?number=9&tags=vegetarian`
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&tags=vegetarian`
       );
       const data = await api.json();
       localStorage.setItem("veggie", JSON.stringify(data.recipes));
